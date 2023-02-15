@@ -50,6 +50,43 @@ int main(){
         porcentaje = 35;
     }
 
+    switch((int)(sueldo_bruto*100)){
+        case 895449:
+            porcentaje = 1.92;
+        
+        case 7598455:
+            porcentaje = 6.40;
+        
+        case 13353607:
+            porcentaje = 10.88;
+        
+        case 15522980:
+            porcentaje = 16;
+        
+        case 18585257:
+            porcentaje = 17.92;
+        
+        case 37483788:
+            porcentaje = 21.36;
+        
+        case 59079599:
+            porcentaje = 23.52;
+        
+        case 112792684:
+            porcentaje = 30;
+        
+        case 150390246:
+            porcentaje = 32;
+        
+        case 451170738:
+            porcentaje = 34;
+        
+        default:
+            porcentaje = 35;
+    }
+
+
+
     sueldo_neto = sueldo_bruto - (sueldo_bruto * (porcentaje/100));
 
     cout << "\nSueldo neto despues de un impuesto del " << porcentaje << "% es de: $" << fixed << std::setprecision(2) << sueldo_neto << endl;
