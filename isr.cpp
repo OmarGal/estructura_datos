@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 
@@ -51,7 +52,8 @@ int main(){
 
     sueldo_neto = sueldo_bruto - (sueldo_bruto * (porcentaje/100));
 
-    cout << "\nSueldo neto despues de un impuesto del " << porcentaje << "% es de: $" << sueldo_neto << endl;
+    cout << "\nSueldo neto despues de un impuesto del " << porcentaje << "% es de: $" << fixed << std::setprecision(2) << sueldo_neto << endl;
+    cout << scientific;
 
     return 0;
 }
