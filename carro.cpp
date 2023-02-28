@@ -8,20 +8,29 @@ typedef struct carro{
 }Autos;
 
 int main(){
-    int cantidad = 5;
+    int cantidad = 5, opcion;
+    
     Autos Unidades[cantidad];
 
-    // Dentro de menu opcion "Guardar"
-    for (int i = 0; i < cantidad; i++){
-        cout << "Introduce la marca: ";
-        getline(cin, Unidades[i].marca);
-        cout << "Introduce el modelo: ";
-        cin >> Unidades[i].modelo;
-        cout << "Introduce el precio: $";
-        cin >> Unidades[i].precio;
-        cout << endl;
-    }
-    // Dentro de menu opcion "Guardar"
+    do{
+        cout << "1.Guardar\n2.Mostrar\n3.Salir\nOpcion: ";
+        cin >> opcion;
+        if(opcion == 1){
+            for (int i = 0; i < cantidad; i++){
+                cout << "Introduce la marca: ";
+                getline(cin, Unidades[i].marca);
+                cout << "Introduce el modelo: ";
+                cin >> Unidades[i].modelo;
+                cout << "Introduce el precio: $";
+                cin >> Unidades[i].precio;
+                cout << endl;
+            }
+        }
+        else{
+
+        }
+    } while (opcion >= 3);
+    
 
     return 0;
 }
