@@ -21,7 +21,7 @@ int main(){
     char departamentos[4][20] = {"Ventas", "Contabilidad", "Compras", "Gerencia"};
 
     //test
-    // Empleados[0].nombre = "a";
+    Empleados[0] = (struct trabajo){"a","b","c","c","Veracruz"};
     //test
     
     do{
@@ -54,8 +54,14 @@ int main(){
             scanf("%d", &submenu);
 
             for(int i = 0; i<n_Empleados; i++){
+                printf("\nCiclo %d", i);
+                printf("\n    %s, %s", Empleados[i].sucursal,sucursales[submenu]);
+
                 if(Empleados[i].sucursal == sucursales[submenu]){
                     printf("%s %s %s", Empleados[i].nombre, Empleados[i].apellido_paterno, Empleados[i].apellido_materno);
+                }
+                else{
+                    printf("\n  no es igual");
                 }
             }
 
