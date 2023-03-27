@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include <stdlib.h>
 
 double obtener_isr(double sueldo_bruto);
 
@@ -12,9 +13,12 @@ typedef struct Trabajadores{
 
 }Trabajadores;
 
-Trabajadores Empleados[10];
+Trabajadores Empleados[4];
 
 int main(){
+    int opcion, empleado_index;
+
+    printf("%.2f\n", 1000000.0);
 
     for(int i = 0; i < sizeof(Empleados)/sizeof(Empleados[0]); i++){
         Empleados[i].num_trabajador = i + 1;
@@ -24,7 +28,7 @@ int main(){
         scanf("%s", Empleados[i].nombre);
         printf("Apellido: ");
         scanf("%s", Empleados[i].apellido);
-        printf("Salario: ");
+        printf("Salario: $");
         scanf("%lf", &Empleados[i].salario);
 
         Empleados[i].isr = obtener_isr(Empleados[i].salario);
@@ -33,7 +37,27 @@ int main(){
         printf("ISR: $%g", Empleados[i].isr);
         printf("\nsueldo: $%g", Empleados[i].sueldo);
         printf("\n\n");
+        system("clear");
     }
+
+    do{
+        system("clear");
+        for(int i = 0; i < sizeof(Empleados)/sizeof(Empleados[0]); i++){
+            printf("%d. %s %s\n", i+1, Empleados[i].nombre, Empleados[i].apellido);
+        }
+        printf("Escoge un empleado: ");
+        scanf("%d", &empleado_index);
+        empleado_index--;
+
+        printf("\nEmpleado numero %d\n", Empleados[empleado_index].num_trabajador);
+        printf("%s %s\n", Empleados[empleado_index].nombre, Empleados[empleado_index].apellido);
+        printf("Salario: $%.2f\n", Empleados[empleado_index].salario);
+        printf("ISR: $%.2f\n", Empleados[empleado_index].isr);
+        printf("Sueldo: $%.2f\n", Empleados[empleado_index].sueldo);
+
+        printf("\nBuscar otro empleado? (0.No 1.Si): ");
+        scanf("%d", &opcion);
+    }while(opcion != 0);
 
     return 0;
 }
