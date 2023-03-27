@@ -12,14 +12,14 @@ typedef struct Departamentos{
     int num_camas;
     int piso;
     int precio;
-    int esta_ocupado;
+    int esta_ocupado; // 0 = falso, 1 = verdadero
 }Departamentos;
 
 Departamentos Cuartos[6];
 
 
 int main(){
-    int repetir, opcion;
+    int repetir, opcion, escoger;
 
     inicializar_cuartos();
 
@@ -33,7 +33,15 @@ int main(){
         switch (opcion)
         {
         case 1:
-            printf("caso 1");
+            system("clear"); // cambia el "clear" por "cls"
+            for(int i = 0; i < 6; i++){
+                if(Cuartos[i].esta_ocupado == 0){
+                    printf("%d. Cuarto %d\n", i+1, Cuartos[i].num_cuarto);
+                }
+            }
+
+            printf("Escoge una habitacion: ");
+            scanf("%d", &escoger);
             break;
         case 2:
             printf("caso 2");
