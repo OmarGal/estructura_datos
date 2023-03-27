@@ -4,7 +4,7 @@
 // ^quita las "//"
 
 void inicializar_cuartos();
-void alquilar();
+void alquilar(numero_del_cuarto);
 void pagar();
 
 typedef struct Departamentos{
@@ -45,6 +45,9 @@ int main(){
 
             printf("Escoge una habitacion: ");
             scanf("%d", &escoger);
+            alquilar(escoger);
+            printf("Presiona una tecla...");
+            getchar(); // cambia por "getch();"
             break;
         case 2:
             printf("caso 2");
@@ -108,8 +111,9 @@ void inicializar_cuartos(){
 
 }
 
-void alquilar(){
-
+void alquilar(numero_del_cuarto){
+    printf("\n Tu habitacion es el numero %d en el piso %d.\n", Cuartos[numero_del_cuarto].num_cuarto, Cuartos[numero_del_cuarto].piso);
+    Cuartos[numero_del_cuarto].esta_ocupado = 1;
 }
 
 void pagar(){
