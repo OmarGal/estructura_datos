@@ -19,7 +19,7 @@ Departamentos Cuartos[6];
 
 
 int main(){
-    int repetir, opcion, escoger;
+    int repetir, opcion, escoger, dias, total;
 
     inicializar_cuartos();
 
@@ -49,10 +49,24 @@ int main(){
             alquilar(escoger);
             printf("Presiona enter para continuar...");
             scanf("%d", &escoger); // cambia por "getch();"
-            getchar(); // cambia por "getch();"
             break;
         case 2:
-            printf("caso 2");
+            system("clear"); // cambia el "clear" por "cls"
+            for(int i = 0; i < 6; i++){
+                if(Cuartos[i].esta_ocupado == 1){
+                    printf("%d.Cuarto %d. Cuarto libre\n", i+1, Cuartos[i].num_cuarto);
+
+                }
+            }
+            printf("Selecciona la habitacion en la que te quedaste: ");
+            scanf("%d", &escoger);
+            escoger = escoger - 1;
+
+            printf("Dias hospedados: ");
+            scanf("%d", &dias);
+
+            total = dias * Cuartos[escoger].precio;
+
             break;
         case 3:
             printf("caso 3");
