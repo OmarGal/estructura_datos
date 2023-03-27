@@ -1,11 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-// #include <conio.h> 
-// ^quita las "//"
+#include <conio.h>
 
-void inicializar_cuartos();
-void alquilar(numero_del_cuarto);
-void pagar();
+void crear_cuartos();
 
 typedef struct Departamentos{
     int num_cuarto;
@@ -21,10 +18,10 @@ Departamentos Cuartos[6];
 int main(){
     int repetir, opcion, escoger, dias, total;
 
-    inicializar_cuartos();
+    crear_cuartos();
 
     do{
-        system("clear"); // cambia el "clear" por "cls"
+        system("cls");
         printf("=== Bienvenido ===\n");
         printf("1.Alquilar\n2.Pagar\n3.Salir\n");
         printf("Escoge una opcion: ");
@@ -33,7 +30,7 @@ int main(){
         switch (repetir)
         {
         case 1:
-            system("clear"); // cambia el "clear" por "cls"
+            system("cls");
             for(int i = 0; i < 6; i++){
                 if(Cuartos[i].esta_ocupado == 0){
                     printf("%d.Cuarto %d. Cuarto libre\n", i+1, Cuartos[i].num_cuarto);
@@ -51,10 +48,10 @@ int main(){
             Cuartos[escoger].esta_ocupado = 1;
 
             printf("Presiona enter para continuar...");
-            scanf("%d", &escoger); // cambia por "getch();"
+            getch();
             break;
         case 2:
-            system("clear"); // cambia el "clear" por "cls"
+            system("cls");
             for(int i = 0; i < 6; i++){
                 if(Cuartos[i].esta_ocupado == 1){
                     printf("%d.Cuarto %d.\n", i+1, Cuartos[i].num_cuarto);
@@ -77,15 +74,12 @@ int main(){
             Cuartos[escoger].esta_ocupado = 0;
 
             printf("Presiona enter para continuar...");
-            scanf("%d", &escoger); // cambia por "getch();"
+            getch();
             break;
 
         default:
             break;
         }
-
-        // getch();
-        // ^quita las "//"
 
     }while(repetir != 3);
 
@@ -93,7 +87,7 @@ int main(){
     return 0;
 }
 
-void inicializar_cuartos(){
+void crear_cuartos(){
 
     Cuartos[0].num_cuarto = 101;
     Cuartos[0].num_camas = 2;
@@ -134,13 +128,4 @@ void inicializar_cuartos(){
 
 }
 
-void alquilar(numero_del_cuarto){
-    printf("\nTu habitacion es el numero %d en el piso %d.\n", Cuartos[numero_del_cuarto].num_cuarto, Cuartos[numero_del_cuarto].piso);
-    Cuartos[numero_del_cuarto].esta_ocupado = 1;
-}
-
-void pagar(){
-
-
-}
 
