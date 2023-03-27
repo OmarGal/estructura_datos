@@ -28,9 +28,9 @@ int main(){
         printf("=== Bienvenido ===\n");
         printf("1.Alquilar\n2.Pagar\n3.Salir\n");
         printf("Escoge una opcion: ");
-        scanf("%d", &opcion);
+        scanf("%d", &repetir);
 
-        switch (opcion)
+        switch (repetir)
         {
         case 1:
             system("clear"); // cambia el "clear" por "cls"
@@ -46,7 +46,10 @@ int main(){
             printf("Escoge una habitacion: ");
             scanf("%d", &escoger);
             escoger = escoger - 1;
-            alquilar(escoger);
+
+            printf("\nTu habitacion es el numero %d en el piso %d.\n", Cuartos[escoger].num_cuarto, Cuartos[escoger].piso);
+            Cuartos[escoger].esta_ocupado = 1;
+
             printf("Presiona enter para continuar...");
             scanf("%d", &escoger); // cambia por "getch();"
             break;
@@ -55,6 +58,7 @@ int main(){
             for(int i = 0; i < 6; i++){
                 if(Cuartos[i].esta_ocupado == 1){
                     printf("%d.Cuarto %d.\n", i+1, Cuartos[i].num_cuarto);
+                    printf("  Precio: $%d\n\n", Cuartos[i].precio);
 
                 }
             }
@@ -70,14 +74,12 @@ int main(){
             printf("Te hospedaste en la habitacion %d.\n", Cuartos[escoger].num_cuarto);
             printf("Tu total ha pagar es de: $%d\n", total);
 
+            Cuartos[escoger].esta_ocupado = 0;
+
             printf("Presiona enter para continuar...");
             scanf("%d", &escoger); // cambia por "getch();"
             break;
-        case 3:
-            repetir = 3;
 
-            break;
-        
         default:
             break;
         }
