@@ -54,7 +54,7 @@ int main(){
             system("clear"); // cambia el "clear" por "cls"
             for(int i = 0; i < 6; i++){
                 if(Cuartos[i].esta_ocupado == 1){
-                    printf("%d.Cuarto %d. Cuarto libre\n", i+1, Cuartos[i].num_cuarto);
+                    printf("%d.Cuarto %d.\n", i+1, Cuartos[i].num_cuarto);
 
                 }
             }
@@ -67,9 +67,14 @@ int main(){
 
             total = dias * Cuartos[escoger].precio;
 
+            printf("Te hospedaste en la habitacion %d.\n", Cuartos[escoger].num_cuarto);
+            printf("Tu total ha pagar es de: $%d\n", total);
+
+            printf("Presiona enter para continuar...");
+            scanf("%d", &escoger); // cambia por "getch();"
             break;
         case 3:
-            printf("caso 3");
+            repetir = 3;
 
             break;
         
