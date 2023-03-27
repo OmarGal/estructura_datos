@@ -1,6 +1,8 @@
 #include <stdio.h>
 
 void inicializar_cuartos();
+void alquilar();
+void pagar();
 
 typedef struct Departamentos{
     int num_cuarto;
@@ -14,17 +16,40 @@ Departamentos Cuartos[6];
 
 
 int main(){
+    int repetir, opcion;
+
     inicializar_cuartos();
 
-    for(int i = 0; i < sizeof(Cuartos)/sizeof(Cuartos[0]); i++){
-        printf("\n%d", Cuartos[i].num_cuarto);
-    }
+    do{
+        printf("=== Bienvenido ===\n");
+        printf("1.Alquilar\n2.Pagar\n3.Salir\n");
+        printf("Escoge una opcion: ");
+        scanf("%d", opcion);
+
+        switch (opcion)
+        {
+        case 1:
+
+            break;
+        case 2:
+
+            break;
+        case 3:
+
+            break;
+        
+        default:
+            break;
+        }
+
+    }while(repetir != 3);
 
 
     return 0;
 }
 
 void inicializar_cuartos(){
+
     Cuartos[0].num_cuarto = 101;
     Cuartos[0].num_camas = 2;
     Cuartos[0].piso = 1;
@@ -63,3 +88,13 @@ void inicializar_cuartos(){
 
 
 }
+
+void alquilar(){
+
+}
+
+void pagar(){
+
+
+}
+
