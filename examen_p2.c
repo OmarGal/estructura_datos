@@ -21,6 +21,7 @@ int main(){
     inicializar_cuartos();
 
     do{
+        system("clear"); // cambia el "clear" por "cls"
         printf("=== Bienvenido ===\n");
         printf("1.Alquilar\n2.Pagar\n3.Salir\n");
         printf("Escoge una opcion: ");
@@ -29,18 +30,21 @@ int main(){
         switch (opcion)
         {
         case 1:
-
+            printf("caso 1");
             break;
         case 2:
-
+            printf("caso 2");
             break;
         case 3:
+            printf("caso 3");
 
             break;
         
         default:
             break;
         }
+
+        printf("Presiona cualquier tecla para continuar...");
 
     }while(repetir != 3);
 
