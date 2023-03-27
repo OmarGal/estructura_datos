@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
+// #include <conio.h> 
+// ^quita las "//"
 
 void inicializar_cuartos();
 void alquilar();
@@ -25,7 +28,7 @@ int main(){
         printf("=== Bienvenido ===\n");
         printf("1.Alquilar\n2.Pagar\n3.Salir\n");
         printf("Escoge una opcion: ");
-        scanf("%d", opcion);
+        scanf("%d", &opcion);
 
         switch (opcion)
         {
@@ -44,7 +47,8 @@ int main(){
             break;
         }
 
-        printf("Presiona cualquier tecla para continuar...");
+        // getch();
+        // ^quita las "//"
 
     }while(repetir != 3);
 
