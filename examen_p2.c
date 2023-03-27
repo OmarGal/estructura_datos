@@ -36,7 +36,10 @@ int main(){
             system("clear"); // cambia el "clear" por "cls"
             for(int i = 0; i < 6; i++){
                 if(Cuartos[i].esta_ocupado == 0){
-                    printf("%d. Cuarto %d\n", i+1, Cuartos[i].num_cuarto);
+                    printf("%d.Cuarto %d. Cuarto libre\n", i+1, Cuartos[i].num_cuarto);
+                    printf("  Camas: %d\n", Cuartos[i].num_camas);
+                    printf("  Piso: %d\n", Cuartos[i].piso);
+                    printf("  Precio: $%d\n\n", Cuartos[i].precio);
                 }
             }
 
