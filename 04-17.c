@@ -3,16 +3,21 @@
 #include <time.h>
 // #include <conio.h>
 
-float ventas_dia(float lista[10][7]);
-float mayor_venta_dia(float lista[10][7]);
-void promedio_ventas(float lista[7]);
-float llenar(float lista[10][7]);
-char dia[5][20] = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes"};
+void suma_ventas();
+void ventas_dia();
+void mayor_venta_dia();
+void promedio_ventas();
+void llenar();
+
+char dia[7][20] = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
+double promedios_por_dia[7];
+double totales_por_dia[7];
+double tienda[10][7];
+int id_mayor_venta;
 
 int main(){
     srand(time(NULL));
     int opcion;
-    float tienda[10][7], totales_por_dia[7];
     llenar(tienda);
 
     do{
@@ -24,82 +29,86 @@ int main(){
 
         switch (opcion){
         case 1:
-            tienda[10][7] = ventas_dia(tienda);
+            ventas_dia();
             break;
         
         case 2:
-            totales_por_dia[7] = mayor_venta_dia(tienda);
+            mayor_venta_dia();
+            scanf("%d", &opcion);
             break;
         
         case 3:
-            promedio_ventas(totales_por_dia);
+            promedio_ventas();
+            scanf("%d", &opcion);
             break;
         
         case 4:
+            return 0;
             break;
         
         default:
             break;
         }
 
+        system("clear");
     }while(opcion = 4);
 
 
-
+    return 0;
 }
 
-float ventas_dia(float lista[10][7]){
-    float venta, total = 0;
+void ventas_dia(){
+    double venta, total = 0;
 
     printf("> Ventas por dia\n");
     for(int i = 0; i < 7; i++){
         printf("   - %s\n", dia[i]);
         for(int j = 0; j < 10; j++){
             printf("   Venta #%d: $", j+1);
-            scanf("%f", &lista[j][i]);
+            scanf("%lf", &tienda[j][i]);
 
         }
     }
-    return lista[10][7];
 }
 
-float llenar(float lista[10][7]){
-    float venta, total = 0;
+void llenar(){
+    double venta, total;
     int nMin = 10, nMax = 50;
     int nRandonNumber;
+    int mayor = 0, id;
     
 
     for(int i = 0; i < 7; i++){
-        // printf("   - %s\n", dia[i]);
+        total = 0;
         for(int j = 0; j < 10; j++){
-            // printf("   Venta #%d: $", j+1);
-            lista[j][i] = rand()%((nMax+1)-nMin) + nMin;
+            venta = rand()%((nMax+1)-nMin) + nMin;
+            total += venta;
+            tienda[j][i] = venta;
+            totales_por_dia[i] = total;
         }
+        if(total > mayor){
+            mayor = total;
+            id = i;
+        }
+        promedios_por_dia[i] = totales_por_dia[i]/10;
     }
-    return lista[10][7];
+    id_mayor_venta = id;
 }
 
-float mayor_venta_dia(float lista[10][7]){
-    int id = 0;
-    float totales[7];
-    printf("> Dia con mayor venta\n");
+void mayor_venta_dia(){
+    system("clear");
+    printf("> Dia con mayor ventas\n");
     for(int i = 0; i < 7; i++){
-        id = 0;
-        // printf("\n   - %s: $", dia[i]);
-        for(int j = 0; j < 10; j++){
-            totales[i] += lista[j][i];
-            if(totales[i] > id){
-                id = totales[i];
-            }
-        }
+        printf("\n%s: $%.2f", dia[i], totales_por_dia[i]);
     }
-    printf("%s fue el dia con mayor ventas: $%f", dia[id], totales[id]);
-    return totales[7];
+    printf("\n\n%s fue el dia con mayor ventas $%.2f", dia[id_mayor_venta], totales_por_dia[id_mayor_venta]);
+
 }
-void promedio_ventas(float lista[7]){
+
+void promedio_ventas(){
     printf("> Promedio ventas por dia\n");
     for(int i = 0; i < 7; i++){
-        printf("\n   -%s: $%f", dia[i], lista[i]/10);
+        printf("\n%s: $%.2f por cada venta", dia[i], promedios_por_dia[i]);
     }
 
 }
