@@ -18,8 +18,8 @@ typedef struct Alimento{
 
 Alimento Alimentos[2];
 
-int azucar_id=0, huevos_id=1;
-char nombre[2][25] = {"Azucar", "Harina"};
+int azucar_id=0, huevo_id=1;
+char nombre[2][25] = {"azucar", "huevo"};
 char unidad_str[2][6] = {"bultos", "cajas"};
 
 int main(){
@@ -65,7 +65,7 @@ int main(){
 void cargar_mercancia(){
     int opcion;
     double cantidad;
-    printf("1.Carga azucar\n2.Carga harina\n");
+    printf("1.Carga azucar\n2.Carga huevo\n");
     printf("opcion: ");
     scanf("%d", &opcion);
     opcion--;
@@ -81,7 +81,7 @@ void cargar_mercancia(){
 void salida_mercancia(){
     int opcion;
     double cantidad;
-    printf("1.Salida azucar\n2.Salida harina\n");
+    printf("1.Salida azucar\n2.Salida huevo\n");
     printf("opcion: ");
     scanf("%d", &opcion);
     opcion--;
@@ -95,8 +95,16 @@ void salida_mercancia(){
     printf("\nlksjdf: %lf", Alimentos[opcion].kilos);
 }
 void consulta_mercancia(){
+    int opcion;
 
+    printf("1.Consulta azucar\n2.Consulta huevo\n");
+    printf("opcion: ");
+    scanf("%d", &opcion);
+    opcion--;
 
+    printf("%s\n", nombre[opcion]);
+    printf("kilos: %lf\n", Alimentos[opcion].kilos);
+    printf("bultos/cajas: %lf\n", Alimentos[opcion].unidad);
 }
 int convertir(int valor){
     Alimentos[valor].unidad = (Alimentos[valor].kilos / 1000) * Alimentos[valor].conversion;
