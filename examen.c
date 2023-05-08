@@ -64,21 +64,33 @@ int main(){
 
 void cargar_mercancia(){
     int opcion;
+    double cantidad;
     printf("1.Carga azucar\n2.Carga harina\n");
     printf("opcion: ");
     scanf("%d", &opcion);
     opcion--;
 
     printf("Introduzca kilos: ");
-    scanf("%lf", &Alimentos[opcion].kilos);
+    scanf("%lf", &cantidad);
 
-    
+    Alimentos[opcion].kilos += cantidad;
 
     printf("\nlksjdf: %lf", Alimentos[opcion].kilos);
 }
 void salida_mercancia(){
+    int opcion;
+    double cantidad;
+    printf("1.Salida azucar\n2.Salida harina\n");
+    printf("opcion: ");
+    scanf("%d", &opcion);
+    opcion--;
 
+    printf("Salida de kilos: ");
+    scanf("%lf", &cantidad);
 
+    Alimentos[opcion].kilos -= cantidad;
+
+    printf("\nlksjdf: %lf", Alimentos[opcion].kilos);
 }
 void consulta_mercancia(){
 
