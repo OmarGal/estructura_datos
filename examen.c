@@ -74,6 +74,7 @@ void cargar_mercancia(){
     scanf("%lf", &cantidad);
 
     Alimentos[opcion].kilos += cantidad;
+    Alimentos[opcion].unidad = (Alimentos[opcion].kilos / 1000) * Alimentos[opcion].conversion;
 
     printf("\nlksjdf: %lf", Alimentos[opcion].kilos);
 }
@@ -89,6 +90,7 @@ void salida_mercancia(){
     scanf("%lf", &cantidad);
 
     Alimentos[opcion].kilos -= cantidad;
+    Alimentos[opcion].unidad = (Alimentos[opcion].kilos / 1000) * Alimentos[opcion].conversion;
 
     printf("\nlksjdf: %lf", Alimentos[opcion].kilos);
 }
@@ -97,6 +99,6 @@ void consulta_mercancia(){
 
 }
 int convertir(int valor){
-    Alimentos[valor].unidad = Alimentos[valor].kilos / Alimentos[valor].conversion;
+    Alimentos[valor].unidad = (Alimentos[valor].kilos / 1000) * Alimentos[valor].conversion;
     return 0;
 }
